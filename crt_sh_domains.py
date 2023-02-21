@@ -27,6 +27,8 @@ args = parser.parse_args()
 # Set up variables
 domain = args.domain
 OUTPUT_FILE = args.output
+user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+headers = {"User-Agent": user_agent}
 
 # Set up crt.sh URL
 crt_sh_url = 'https://crt.sh/?q=%25.' + domain + '&output=json'
@@ -39,12 +41,12 @@ def get_domains() -> list:
     Returns: list of domains"""
     try:
         session = requests.Session()
-        response = session.get(crt_sh_url)
+        response = session.get(crt_sh_url, headers=headers)
 
         if response.status_code == 200:
             return response.json()
         else:
-            print('Error getting domains from crt.sh')
+            print('Error getting domains from crt.sh, run again')
             logger.error('Error getting domains from crt.sh')
             sys.exit(1)
 

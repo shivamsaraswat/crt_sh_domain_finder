@@ -3,14 +3,17 @@
 Get all the related domains and subdomains using [crt.sh](https://crt.sh/).
 
 ## Installation
+
 To install dependencies, use the following command:
 
 ```bash
 pip3 install -r requirements.txt
 ```
 
-# Using the crt.sh Domain Finder
+## Using the crt.sh Domain Finder
+
 To run the crt.sh Domain Finder on a domain, use the '-d' flag and provide the domain as an argument:
+
 ```bash
 python crt_sh_domains.py -d example.com
 ```
@@ -37,3 +40,5 @@ options:
 
 Example: python crt_sh_domains.py -d example.com -o domains.txt
 ```
+
+**NOTE:** Do check out **[Golang Version of crt.sh Domain Finder](https://github.com/shivamsaraswat/crt_sh_go)**.
